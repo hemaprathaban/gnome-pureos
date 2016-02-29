@@ -1,0 +1,25 @@
+#!/bin/sh
+
+set -e
+
+case "$(dpkg --print-architecture)" in
+	amd64)
+		_SOURCE="true"
+		;;
+
+	i386)
+		_SOURCE="false"
+		;;
+esac
+
+lb config noauto \
+	--clean \
+	--ignore-system-defaults \
+	--mode debian \
+	--debian-installer live \
+	--linux-packages "linux-image linux-headers" \
+	--source false \
+        --iso-application "PureOS-2.0 Linux" \
+        --iso-publisher "Purism" \
+        --iso-volume "Pure-OS-2.0 Live" \
+"${@}"
