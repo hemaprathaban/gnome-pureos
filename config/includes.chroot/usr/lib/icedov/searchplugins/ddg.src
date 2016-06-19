@@ -1,0 +1,24 @@
+    # Mozilla/dukgo plug-in
+    #
+    <search
+       name="ddg.com"
+       description="ddg.com Search Engine"
+       method="GET"
+       action="http://www.dukgo.com/html"
+       queryCharset="utf-8"
+    >
+
+    <input name="q" user>
+    #<inputnext name="page" factor="1">
+    <inputprev>
+
+    <interpret
+        browserResultType="result"
+        charset="utf-8"
+        resultListStart='<html>'
+        resultListEnd='</html>'
+        resultItemStart='class="L4"'
+        resultItemEnd='class="T1"'
+    >
+    </search>
+
